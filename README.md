@@ -2,8 +2,9 @@
 
 Scula is a minimalistic dark theme for Jekyll based on the Dracula color palette.  
 It is designed to be used for a personal blog or portfolio.
-You can find a live version running [here](https://blog.sen.cat).
-
+You can find a live version running [here](https://blog.sen.cat).  
+<br>
+[![Gem Version](https://badge.fury.io/rb/scula.svg)](https://badge.fury.io/rb/scula)
 ***
 
 ## Installation
