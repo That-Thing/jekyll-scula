@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+{% include head.html %}
+<body>
+<div class="container mt-1">
+    <div class="box mx-auto w-50 mb-1">
+        <div class="box-header text-center">
+            <h3 class="box-header-text">
+                {% if page.header%}
+                    {{ page.header }}
+                {% else %}
+                    {{ page.title }}
+                {% endif %}
+            </h3>
+        </div>
+        <div class="box-content">
+            {% include nav.html %}
+            <div class="box-entry mt-1">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+---
+title: Categories
+layout: page
+permalink: /categories/
+---
+<div>
+    <ul>
+        {% for category in site.categories %}
+        <li>
+            <a href="{{ site.baseurl }}/category/{{ category | first | slugify }}/">{{ category | first }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

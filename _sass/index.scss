@@ -1,0 +1,17 @@
+#post-box {
+  min-width: 30%;
+}
+#right-col, #post-box {
+  @media only screen and (max-width: 600px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#nav-box {
+  min-height: 100px;
+}
+#index-boxes {
+  gap: 50px;
+  min-width: 100%;
+  flex-wrap: wrap-reverse;
+}

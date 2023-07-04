@@ -1,0 +1,71 @@
+---
+title: Home
+layout: bare
+pagination:
+    enabled: false
+---
+<div class="row mx-auto" id="index-boxes">
+    <div class="box ms-auto" id="post-box">
+        <div class="box-header text-center">
+            <h3 class="box-header-text">Recent Posts</h3>
+        </div>
+        <div class="box-content">
+            {%- if site.posts.size > 0 -%}
+                <ul class="post-list">
+                    {%- assign date_format = site.theme-config.date_format | default: "%b %-d, %Y" -%}
+                    {% for post in site.posts limit:8 %}
+                        <li>
+
+                            <h3>
+                                <a class="post-link" href="{{ post.url | relative_url }}">
+                                    {{ post.title | escape }}
+                                </a>
+                            </h3>
+                            {%- if site.show_excerpts -%}
+                            {{ post.excerpt }}
+                            {%- endif -%}
+                            <span class="post-meta">{{ post.date | date: date_format }}</span>
+                            <span class="post-meta">
+                                {% if post.categories.size >= 1 %}
+                                    [
+                                    {%- for tag in post.categories -%}
+                                        <a href="{{ "/category" | relative_url }}/{{ tag | slugify }}/">{{ tag }}</a>
+                                    {%- unless forloop.last -%}
+                                            ,
+                                        {%- endunless -%}
+                                    {%- endfor -%}
+                                    ]
+                                {% endif %}
+                            </span>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            {%- else -%}
+                <span class="grey">No posts seem to have been made...yet</span>
+            {%- endif -%}
+        </div>
+    </div>
+    <div class="column me-auto" id="right-col">
+        <div class="box" id="nav-box">
+            <div class="box-header text-center">
+                <h3 class="box-header-text">Navigation</h3>
+            </div>
+            <div class="box-content text-center fs-1">
+                <div>
+                    [ <a href="{{ "/about/" | relative_url }}">About</a> ]
+                    [ <a href="{{ "/posts/" | relative_url }}">Posts</a> ]
+                    [ <a href="{{ "/feed.xml" | relative_url }}">RSS</a> ]
+                </div>
+                <div>
+                    [ <a href="{{ "/categories/" | relative_url }}">Categories</a> ]
+                    [ <a href="{{ "/contact/" | relative_url }}">Contact</a> ]
+                </div>
+                <div>
+                    [ <a href="#">Link 1</a> ]
+                    [ <a href="#">Link 2</a> ]
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

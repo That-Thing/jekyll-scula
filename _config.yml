@@ -1,0 +1,64 @@
+#Stuff to exclude in the build
+exclude:
+- README.md
+- Gemfile
+- Gemfile.lock
+- .jekyll-cache
+
+theme: scula
+
+#Build settings
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-paginate-v2
+sass:
+  sass_dir: _sass
+  style: compressed
+permalink: /:year/:month/:day/:title:output_ext
+
+#SEO stuff
+title: "Jekyll Scula Theme" # Your site title
+tagline: "A minimalist Jekyll theme."
+description: "A minimalist Jekyll theme loosely based on the Dracula color scheme."
+author: "Sen" # Your name
+logo: "/assets/images/logo.png"
+
+
+url: "http://localhost:4000" # The base hostname & protocol for your site
+
+#Pagination
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+autopages:
+  enabled: true
+  categories:
+    enabled: true
+    layouts:
+      - 'autopage_category.html'
+    permalink: '/category/:cat'
+    title: ':cat'
+    slugify:
+      mode: 'default'   # :cat is slugified. Modes: default, raw, pretty, ascii, latin
+      case: true       # Whether to replace all uppercase letters with their lowercase counterparts
+
+#Page stuff
+theme-config:
+  logo: "/assets/images/logo.png"
+  logo-width: 100
+  logo-height: 100
+  favicon: "/assets/images/favicon.png"
+  favicon-width: 32
+  favicon-height: 32
+  date-format: "%b %-d, %Y"
+  time-format: "%-I:%M %p"
+
+#Site information
+email: your@email.here # Your email address

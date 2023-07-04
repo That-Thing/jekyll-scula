@@ -1,0 +1,37 @@
+---
+title: Posts
+layout: page
+pagination:
+    enabled: true
+    per_page: 10
+    permalink: '/:num/'
+---
+<div>
+    {% for post in paginator.posts %}
+        <div class="post">
+            <h3>
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                </a>
+            </h3>
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+            {%- if site.show_excerpts -%}
+                {{ post.excerpt }}
+            {%- endif -%}
+        </div>
+    {%- endfor -%}
+    {% if paginator.total_pages > 1 %}
+        <ul class="pager">
+            {% if paginator.previous_page %}
+            <li class="previous">
+                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+            </li>
+            {% endif %}
+            {% if paginator.next_page %}
+            <li class="next">
+                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+            </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</div>

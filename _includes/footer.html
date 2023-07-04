@@ -1,0 +1,16 @@
+<div class="box-footer text-center mt-1">
+  {% if page.categories.size >= 1 %}
+    tags:
+    [
+    {%- for tag in page.categories -%}
+      <a href="{{ "/category" | relative_url }}/{{ tag | slugify }}">{{ tag }}</a>
+      {%- unless forloop.last -%}
+      ,
+      {%- endunless -%}
+    {%- endfor -%}
+    ]
+  {% endif %}
+  {% if paginator.total_pages > 1 %}
+    <span>page {{page.pagination_info.curr_page}}/{{page.pagination_info.total_pages}}</span>
+  {% endif %}
+</div>
